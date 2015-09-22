@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="dragitApp">
+	<head>
+		<title>Draggable Directive App</title>
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	</head>
+	<body>
+		<div ng-controller="DragItController">
+			<img rich-draggable src="/images/me_ul.jpg" />
+			<img rich-draggable src="/images/me_ll.jpg" />
+			<img rich-draggable src="/images/me_ur.jpg" />
+			<img rich-draggable src="/images/me_lr.jpg" />
+			<span rich-draggable>Lake</span>				
+			<span rich-draggable>Bison</span>				
+			<span rich-draggable>Flower</span>				
+			<span rich-draggable>Arch</span>				
+		</div>
+
+		<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+		<script src="/js/custom-directives.js"></script>
+	</body>
+</html>

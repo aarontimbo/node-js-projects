@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="directiveApp">
+	<head>
+		<title>AngularJS Data Binding App</title>
+	</head>
+	<body>
+		<h2>Data Binding Directives</h2>
+		<div ng-controller="radioController as rctrl">
+			<span ng-style="rctrl.myStyle"></span>
+			<label ng-repeat="color in rctrl.colors">
+				{{color}}
+				<input type="radio" 
+					   ng-model="rctrl.myStyle['background-color']"
+					   ng-value="color"
+					   id="{{color}}"
+					   name="mColor">
+			</label>
+		</div><hr>
+
+		<div ng-controller="selectController as sctrl">
+			<select ng-model="sctrl.camera" ng-options="c.model group by c.make for c in sctrl.cameras"></select>
+			{{sctrl.camera|json}}
+		</div><hr>
+
+		<div ng-controller="eventsController as ectrl">
+			<input type="text" 
+				   ng-blur="ectrl.focusState='Blurred'" 
+				   ng-focus="ectrl.focusState='Focused'"
+				   ng-mouseenter="ectrl.mouseState='Entered'"
+				   ng-mouseleave="ectrl.mouseState='Left'"
+				   ng-mouseclick="ectrl.mouseState='Clicked'"
+				   ng-mousedown="ectrl.mouseState='Down'"
+				   ng-mouseup="ectrl.mouseState='Up'"
+				   ng-keyup="ectrl.keyStroke($event)"
+				   ng-click="ectrl.mouseClick($event)"><br/>
+			Focus State: {{ectrl.focusState}}<br/>
+			Mouse State: {{ectrl.mouseState}}<br/>
+			Key Info: {{ectrl.keyInfo|json}}<br/>
+			Mouse Info: {{ectrl.mouseInfo|json}}<br/>
+		</div>
+
+		<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+		<script src="/js/directives.js"></script>
+	</body>
+</html>

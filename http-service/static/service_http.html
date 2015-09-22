@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app="serviceApp">
+	<head>
+		<title>AngularJS $http Service</title>
+	</head>
+	<body>
+		<div ng-controller="WordController as vm">
+			<h1>$http Service</h1>
+			<input type="text" ng-model="vm.newWord"/>
+			<input type="button" ng-click="vm.addWord()" value="Add Word"/>
+			{{status}}
+			<div ng-repeat="word in vm.words">
+				{{word}}
+				<span ng-click="vm.removeWord(word)">remove</span>
+			</div>
+		</div>
+		<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+		<script src="/js/service_http.js"></script>
+	</body>
+</html>
